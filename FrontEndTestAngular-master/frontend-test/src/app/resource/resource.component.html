@@ -1,0 +1,14 @@
+
+<div class="wrapper" >
+    <h1>Resources</h1>
+    <div class="card" *ngFor="let resource of resources">
+        <div [style.background-color]="resource.color" class="card-body">
+            <div>name: {{resource.name}}</div>
+            <div>year: {{resource.year}}</div>
+            <div>pantone_value: {{resource.pantone_value}}</div>
+        </div>
+    </div>
+    <div *ngIf="!resources">
+        <span class="spinner-border"></span>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <div class="card">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+            <div style="color: red;" *ngIf="hasError">Invalid login info</div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" class="form-control" />
+                    <div *ngIf="submitted && f.username.errors">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"  class="form-control"  />
+                    <div *ngIf="submitted && f.password.errors">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <div class="login-button">
+                    <button class="btn btn-primary" [disabled]="loading">
+                        <span *ngIf="loading" class="spinner-border"></span>
+                        <span *ngIf="!loading">Login</span>
+                    </button>
+                </div>
+            </form>
+            <div style="font-weight: 600;">
+                valid user: eve.holt@reqres.in
+            </div>
+            <div style="font-weight: 600;">
+                valid password: cityslicka
+            </div>
+        </div>
+    </div>
+</div>

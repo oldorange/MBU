@@ -1,0 +1,12 @@
+<nav>
+    <div class="navbar">
+        <div>
+            <a *ngIf="!user" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Login</a>
+            <a *ngIf="user" routerLink="/post">Post</a>
+            <a *ngIf="user" routerLink="/resource">Resource</a>
+        </div>
+        <div>
+            <a class="logout" *ngIf="user" (click)="logout()">Logout</a>
+        </div>
+    </div>
+</nav>
